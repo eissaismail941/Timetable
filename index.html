@@ -12,6 +12,9 @@
             --soft-blue: #e0f2ff;
             --deep-blue: #003b8e;
             --text: #1d1d1f;
+            /* New Green Colors for the Pill */
+            --pill-green: #34c759; 
+            --pill-text: #ffffff;
         }
 
         body {
@@ -67,12 +70,34 @@
             box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             animation: cardEntrance 0.6s ease-out both;
+            position: relative;
         }
 
         .card:hover {
             transform: scale(1.02) translateY(-5px);
             box-shadow: 0 12px 40px rgba(31, 38, 135, 0.12);
             background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Updated Status Badge Styling */
+        .status-badge {
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--pill-text); /* White Text */
+            background: var(--pill-green); /* Nice Light Green */
+            padding: 5px 12px;
+            border-radius: 50px; 
+            margin-left: 10px;
+            vertical-align: middle;
+            text-transform: uppercase; /* Force Capitals */
+            letter-spacing: 0.5px;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(52, 199, 89, 0.3);
+        }
+
+        /* Completed Card Fade */
+        .card.completed {
+            opacity: 0.85;
         }
 
         .day-header {
@@ -175,9 +200,12 @@
     </header>
 
     <div class="grid">
-        <div class="card">
+        <div class="card completed">
             <div class="day-header">
-                <span class="day-name">Saturday</span>
+                <div>
+                    <span class="day-name">Saturday</span>
+                    <span class="status-badge">COMPLETED</span>
+                </div>
                 <span class="day-date">Jan 3</span>
             </div>
             <div class="session">
@@ -203,9 +231,12 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card completed">
             <div class="day-header">
-                <span class="day-name">Sunday</span>
+                <div>
+                    <span class="day-name">Sunday</span>
+                    <span class="status-badge">COMPLETED</span>
+                </div>
                 <span class="day-date">Jan 4</span>
             </div>
             <div class="session">
